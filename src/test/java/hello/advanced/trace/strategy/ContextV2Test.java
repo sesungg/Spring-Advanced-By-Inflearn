@@ -21,7 +21,7 @@ public class ContextV2Test {
 
     @Test
     @DisplayName("전략 패턴 익명 내부 클래스")
-    void strategyV1() {
+    void strategyV2() {
         ContextV2 context = new ContextV2();
         context.execute(new Strategy() {
             @Override
@@ -35,5 +35,13 @@ public class ContextV2Test {
                 log.info("비즈니스 로직2 실행" );
             }
         });
+    }
+
+    @Test
+    @DisplayName("전략 패턴 익명 내부 클래스 람다식")
+    void strategyV3() {
+        ContextV2 context = new ContextV2();
+        context.execute(() -> log.info("비즈니스 로직1 실행"));
+        context.execute(() -> log.info("비즈니스 로직2 실행" ));
     }
 }
